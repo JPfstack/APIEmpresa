@@ -10,7 +10,20 @@ function getAllEmpleados() {
     })
 };
 
+//CREAR NUEVO EMPLEADO
+function createEmpleado({ nombre, dni, sexo, fecha_nac, fecha_inc, salario, cargo, fk_departamento, jefe_id }) {
+    return new Promise((resolve, reject) => {
+        db.query('INSERT INTO empresa.empleados (nombre, dni, sexo, fecha_nac, fecha_inc, salario, cargo, fk_departamento, jefe_id) VALUES (?,?,?,?,?,?,?,?,?)',
+            [nombre, dni, sexo, fecha_nac, fecha_inc, salario, cargo, fk_departamento, jefe_id],
+            (error, result) => {
+                if (error) return reject(error);
+                resolve(result)
+                console.log(result);
+            })
+    })
+};
 
 
 
-module.exports = { getAllEmpleados }
+
+module.exports = { getAllEmpleados, createEmpleado }

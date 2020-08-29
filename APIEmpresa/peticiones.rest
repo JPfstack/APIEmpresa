@@ -6,3 +6,22 @@ GET http://localhost:3000/api/departamentos
 
 ### PETICION RECUPERAR TODOS LOS EMPLEADOS
 GET http://localhost:3000/api/empleados
+
+
+### PETICION INSERTAR NUEVO EMPLEADO
+POST http://localhost:3000/api/empleados
+Content-Type: application/json
+
+{
+    "nombre": "Mario", 
+}
+
+
+### PETICION INSERTAR NUEVO DEPARTAMENTO
+POST http://localhost:3000/api/departamentos
+Content-Type: application/json
+
+{
+    "nombre": "informatica",
+    "ciudad": "valdemoro"
+}

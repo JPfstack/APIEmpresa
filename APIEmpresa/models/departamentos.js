@@ -10,4 +10,18 @@ function getAllDptos() {
     })
 };
 
-module.exports = { getAllDptos }
+
+//CREAR NUEVO DEPARTAMENTO
+function createDpto({ nombre, ciudad }) {
+    return new Promise((resolve, reject) => {
+        db.query('INSERT INTO empresa.departamento (nombre,ciudad) VALUES (?,?)',
+            [nombre, ciudad],
+            (error, result) => {
+                if (error) return reject(error);
+                resolve(result);
+            })
+    })
+};
+
+
+module.exports = { getAllDptos, createDpto }
