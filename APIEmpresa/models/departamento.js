@@ -24,4 +24,17 @@ function createDpto({ nombre, ciudad }) {
 };
 
 
-module.exports = { getAllDptos, createDpto }
+//ACTUALIZAR DEPARTAMENTO
+function updateDpto({ nombre, ciudad, id }) {
+    return new Promise((resolve, reject) => {
+        db.query('UPDATE empresa.departamento SET nombre=?, ciudad=? WHERE id=?',
+            [nombre, ciudad, id],
+            (error, result) => {
+                if (error) return reject(error);
+                resolve(result);
+                console.log(result);
+            })
+    })
+};
+
+module.exports = { getAllDptos, createDpto, updateDpto }

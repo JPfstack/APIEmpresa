@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { getAllEmpleados, createEmpleado } = require('../../models/empleados');
+const { getAllEmpleados, createEmpleado, updateEmpleado } = require('../../models/empleado');
 
 //PETICION GET PARA OBTENER TODOS LOS EMPLEADOS
 router.get('/', async (req, res) => {
@@ -23,7 +23,16 @@ router.post('/', async (req, res) => {
     } catch (error) {
         res.json({ error: error.message })
     }
+});
 
-})
+//PETICION PARA ACTUALIZAR UN EMPLEADO
+router.put('/', async (req, res) => {
+    try {
+        const result = await updateEmpleado(req.body);
+        res.json({ succes: 'Empleado editado' })
+    } catch (error) {
+        res.json({ error: error.message })
+    }
+});
 
 module.exports = router;

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { getAllDptos, createDpto } = require('../../models/departamentos');
+const { getAllDptos, createDpto, updateDpto } = require('../../models/departamento');
 
 
 //PETICION GET PARA OBTENER TODOS LOS DEPARTAMENTOS
@@ -24,8 +24,18 @@ router.post('/', async (req, res) => {
         res.json({ error: error.message })
 
     }
-
 });
+
+//PETICION PUT PARA ACTUALIZAR DEPARTAMENTO
+router.put('/', async (req, res) => {
+    try {
+        const result = await updateDpto(req.body);
+        res.json({ succes: 'Departamento editado' })
+    } catch (error) {
+        res.json({ error: error.message })
+    }
+});
+
 
 
 module.exports = router;

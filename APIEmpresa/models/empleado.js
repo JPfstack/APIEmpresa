@@ -24,6 +24,17 @@ function createEmpleado({ nombre, dni, sexo, fecha_nac, fecha_inc, salario, carg
 };
 
 
+//ACTUALIZAR EMPLEADO
+function updateEmpleado({ nombre, dni, sexo, fecha_nac, fecha_inc, salario, cargo, fk_departamento, jefe_id, id }) {
+    return new Promise((resolve, reject) => {
+        db.query('UPDATE empresa.empleados SET nombre=?, dni=?, sexo=?, fecha_nac=?, salario=?, cargo=?,fk_departamento=?, jefe_id=? WHERE id=?',
+            [nombre, dni, sexo, fecha_nac, salario, cargo, fk_departamento, jefe_id, id],
+            (error, result) => {
+                if (error) return reject(error);
+                resolve(result);
+                console.log(result);
+            })
+    })
+};
 
-
-module.exports = { getAllEmpleados, createEmpleado }
+module.exports = { getAllEmpleados, createEmpleado, updateEmpleado }

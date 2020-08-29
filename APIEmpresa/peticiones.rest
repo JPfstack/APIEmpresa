@@ -13,7 +13,14 @@ POST http://localhost:3000/api/empleados
 Content-Type: application/json
 
 {
-    "nombre": "Mario", 
+    "nombre": "Manuel", 
+    "dni": 02270923,
+    "sexo": "M", 
+    "fecha_nac": "1985-05-05",
+    "salario": 1100, 
+    "cargo":"programador junior",
+    "fk_departamento": 1, 
+    "jefe_id":1
 }
 
 
@@ -22,6 +29,33 @@ POST http://localhost:3000/api/departamentos
 Content-Type: application/json
 
 {
-    "nombre": "informatica",
-    "ciudad": "valdemoro"
+    "nombre": "ventas",
+    "ciudad": "madrid"
+}
+
+### PETICION ACTUALIZAR EMPLEADO
+PUT http://localhost:3000/api/empleados
+Content-Type: application/json
+
+{
+    "id":12,
+    "nombre":"Jose Angel",
+  
+    "sexo": "M", 
+    "fecha_nac": "1980-12-05",
+    "salario": 1100, 
+    "cargo":"programador junior",
+    "fk_departamento": 1, 
+    "jefe_id":1
+}
+
+
+### PETICION ACTUALIZAR DEPARTAMENTO
+PUT http://localhost:3000/api/departamentos
+Content-Type: application/json
+
+{
+    "id":5,
+    "nombre":"contabilidad",
+    "ciudad":"sevilla"
 }
