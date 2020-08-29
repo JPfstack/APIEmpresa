@@ -14,7 +14,7 @@ Content-Type: application/json
 
 {
     "nombre": "Manuel", 
-    "dni": 02270923,
+    "dni": "02270923",
     "sexo": "M", 
     "fecha_nac": "1985-05-05",
     "salario": 1100, 
@@ -29,8 +29,8 @@ POST http://localhost:3000/api/departamentos
 Content-Type: application/json
 
 {
-    "nombre": "ventas",
-    "ciudad": "madrid"
+    "nombre": "compras",
+    "ciudad": "albacete"
 }
 
 ### PETICION ACTUALIZAR EMPLEADO
@@ -39,8 +39,8 @@ Content-Type: application/json
 
 {
     "id":12,
-    "nombre":"Jose Angel",
-  
+    "nombre":"Jose Pedro",
+    "dni":"2547898",
     "sexo": "M", 
     "fecha_nac": "1980-12-05",
     "salario": 1100, 
@@ -57,5 +57,5 @@ Content-Type: application/json
 {
     "id":5,
     "nombre":"contabilidad",
-    "ciudad":"sevilla"
+    "ciudad":"cuenca"
 }
