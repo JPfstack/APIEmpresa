@@ -1,0 +1,8 @@
+
+### PETICION RECUPERAR TODOS LOS DPTOS
+GET http://localhost:3000/api/departamentos
+
+
+
+### PETICION RECUPERAR TODOS LOS EMPLEADOS
+GET http://localhost:3000/api/empleados
