@@ -37,4 +37,17 @@ function updateDpto({ nombre, ciudad, id }) {
     })
 };
 
-module.exports = { getAllDptos, createDpto, updateDpto }
+
+//BORRAR DEPARTAMENTO
+function removeDpto(pId) {
+    return new Promise((resolve, reject) => {
+        db.query('DELETE FROM empresa.departamento WHERE id=?',
+            [pId],
+            (error, result) => {
+                if (error) return reject(error);
+                resolve(result)
+            })
+    })
+};
+
+module.exports = { getAllDptos, createDpto, updateDpto, removeDpto }

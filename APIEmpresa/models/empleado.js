@@ -37,4 +37,18 @@ function updateEmpleado({ nombre, dni, sexo, fecha_nac, fecha_inc, salario, carg
     })
 };
 
-module.exports = { getAllEmpleados, createEmpleado, updateEmpleado }
+
+//BORRAR EMPLEADO
+function removeEmpleado(pId) {
+    return new Promise((resolve, reject) => {
+        db.query('DELETE FROM empresa.empleados WHERE id=?',
+            [pId],
+            (error, result) => {
+                if (error) return reject(error);
+                resolve(result)
+            })
+    })
+};
+
+
+module.exports = { getAllEmpleados, createEmpleado, updateEmpleado, removeEmpleado }

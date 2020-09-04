@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { getAllDptos, createDpto, updateDpto } = require('../../models/departamento');
+const { getAllDptos, createDpto, updateDpto, removeDpto } = require('../../models/departamento');
 
 
 //PETICION GET PARA OBTENER TODOS LOS DEPARTAMENTOS
@@ -13,6 +13,7 @@ router.get('/', async (req, res) => {
         res.status(500).json({ error: error.message })
     }
 });
+
 
 //PETICION POST PARA CREAR NUEVO DEPARTAMENTO
 router.post('/', async (req, res) => {
@@ -26,6 +27,7 @@ router.post('/', async (req, res) => {
     }
 });
 
+
 //PETICION PUT PARA ACTUALIZAR DEPARTAMENTO
 router.put('/', async (req, res) => {
     try {
@@ -36,6 +38,16 @@ router.put('/', async (req, res) => {
     }
 });
 
+
+//PETICION DELETE PARA BORRAR UN DEPARTAMENTO
+router.delete('/', async (req, res) => {
+    try {
+        const result = await removeDpto(req.body.id);
+        res.json({ sucess: 'Departamento borrado' })
+    } catch (error) {
+        res.json({ error: error.message })
+    }
+});
 
 
 module.exports = router;
