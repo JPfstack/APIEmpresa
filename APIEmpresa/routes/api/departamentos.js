@@ -20,7 +20,6 @@ router.post('/', async (req, res) => {
     try {
         const result = await createDpto(req.body);
         res.json(result);
-        console.log(result);
     } catch (error) {
         res.json({ error: error.message })
 

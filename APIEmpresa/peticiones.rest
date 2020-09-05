@@ -11,10 +11,10 @@ POST http://localhost:3000/api/empleados
 Content-Type: application/json
 
 {
-    "nombre": "Manuel", 
-    "dni": "02270923",
+    "nombre": "Ramon", 
+    "dni": "02784923",
     "sexo": "M", 
-    "fecha_nac": "1985-05-05",
+    "fecha_nac": "1985-09-05",
     "salario": 1100, 
     "cargo": "programador junior",
     "fk_departamento": 1, 
@@ -27,8 +27,8 @@ POST http://localhost:3000/api/departamentos
 Content-Type: application/json
 
 {
-    "nombre": "compras",
-    "ciudad": "albacete"
+    "nombre": "diseño",
+    "ciudad": "valencia"
 }
 
 ### PETICION ACTUALIZAR EMPLEADO

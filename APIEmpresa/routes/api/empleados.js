@@ -7,7 +7,7 @@ const { getAllEmpleados, createEmpleado, updateEmpleado, removeEmpleado } = requ
 router.get('/', async (req, res) => {
     try {
         const empleados = await getAllEmpleados();
-        res.render('empleados/index', { empleados: empleados });
+        res.json({ empleados });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
@@ -20,7 +20,6 @@ router.post('/', async (req, res) => {
         req.body.fecha_inc = new Date();
         const result = await createEmpleado(req.body);
         res.json(result);
-        console.log(req.body);
     } catch (error) {
         res.json({ error: error.message })
     }
